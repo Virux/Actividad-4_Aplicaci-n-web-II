@@ -18,7 +18,7 @@ function EquipoForm({ onAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // ✅ VALIDACIÓN BÁSICA (PUNTO 3)
+
     if (!state.marca || !state.modelo || !state.precioDia) {
       alert("Por favor complete todos los campos obligatorios.");
       return;
@@ -26,7 +26,7 @@ function EquipoForm({ onAdd }) {
 
     onAdd(state);
 
-    // Limpiar formulario después de guardar
+    // Limpiar formulario 
     dispatch({ field: "marca", value: "" });
     dispatch({ field: "modelo", value: "" });
     dispatch({ field: "precioDia", value: "" });
