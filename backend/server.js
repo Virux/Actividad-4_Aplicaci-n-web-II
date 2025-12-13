@@ -67,17 +67,22 @@ app.get("/api/equipos", (req, res) => {
  *     summary: Registrar un nuevo equipo
  */
 app.post("/api/equipos", (req, res) => {
-  const { marca, modelo, estado, precioDia } = req.body;
+  const { marca, modelo, estado, precioDia, descripcion } = req.body;
+
   const nuevoEquipo = {
     id: equipos.length + 1,
     marca,
     modelo,
     estado,
-    precioDia
+    precioDia,
+    descripcion,
+    fechaRegistro: new Date().toISOString().split("T")[0] // YYYY-MM-DD
   };
+
   equipos.push(nuevoEquipo);
   res.status(201).json(nuevoEquipo);
 });
+
 
 const PORT = 4000;
 app.listen(PORT, () => {
